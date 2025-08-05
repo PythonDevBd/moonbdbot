@@ -1,0 +1,15 @@
+[Unit]
+Description=Pionex Trading Bot
+After=network.target
+
+[Service]
+Type=simple
+User=botuser
+WorkingDirectory=/opt/pionex-trading-bot
+Environment=PATH=/opt/pionex-trading-bot/venv/bin
+ExecStart=/opt/pionex-trading-bot/venv/bin/python run.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

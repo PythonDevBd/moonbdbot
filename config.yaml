@@ -1,0 +1,100 @@
+trading_pair: DOT_USDT
+position_size: 0.5
+leverage: 10
+margin_type: ISOLATED
+rsi:
+  period: 7
+  overbought: 70
+  oversold: 30
+  multi_tf:
+    enabled: true
+    timeframes:
+    - 5m
+    - 1h
+    thresholds:
+      short_5m: 70
+      long_5m: 30
+      short_1h: 50
+      long_1h: 50
+volume_filter:
+  ema_period: 20
+  multiplier: 1.5
+bollinger_bands:
+  window: 20
+  n_std: 2.0
+macd:
+  fast: 12
+  slow: 26
+  signal: 9
+support_resistance:
+  window: 20
+stop_loss_percentage: 1.5
+take_profit_percentage: 2.5
+trailing_stop_percentage: 1.0
+trading_hours:
+  enabled: true
+  start: '19:30'
+  end: 01:30
+  timezone: UTC-5
+notifications:
+  telegram:
+    enabled: true
+    trade_notifications: true
+    error_notifications: true
+    status_notifications: true
+  email:
+    enabled: false
+    smtp_server: smtp.gmail.com
+    smtp_port: 587
+    sender_email: ''
+    sender_password: ''
+    recipient_email: ''
+    trade_notifications: true
+    error_notifications: true
+    status_notifications: true
+logging:
+  level: INFO
+  file: logs/trading_bot.log
+  per_instance: true
+futures:
+  enabled: true
+  grid:
+    max_grids: 100
+    min_investment: 10.0
+    max_investment: 10000.0
+  hedging:
+    enabled: true
+    max_positions: 5
+backtesting:
+  enabled: false
+  paper_trading: true
+watchdog:
+  enabled: true
+  heartbeat_interval: 60
+  max_failures: 3
+  auto_restart: true
+  memory_threshold: 200
+  cpu_threshold: 80
+api:
+  retry_attempts: 3
+  retry_backoff: 1.5
+  timeout: 30
+  key: ''
+  secret: ''
+strategy_types:
+  RSI_STRATEGY: RSI Strategy
+  RSI_MULTI_TF: RSI Multi-Timeframe
+  VOLUME_FILTER: Volume Filter Strategy
+  ADVANCED_STRATEGY: Advanced Strategy
+  GRID_TRADING: Grid Trading
+  DCA: Dollar Cost Averaging
+  MANUAL: Manual Trading
+strategy_descriptions:
+  RSI_STRATEGY: Basic RSI-based trading strategy
+  RSI_MULTI_TF: Multi-timeframe RSI strategy for better signal accuracy
+  VOLUME_FILTER: Volume-based strategy with EMA filter
+  ADVANCED_STRATEGY: Combined strategy using multiple indicators
+  GRID_TRADING: Grid trading strategy for range-bound markets
+  DCA: Dollar Cost Averaging strategy
+  MANUAL: Manual trading with full user control
+telegram_bot_token: ''
